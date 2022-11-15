@@ -29,4 +29,5 @@ return function (App $app) {
 
     $app->get('/dvds/{dvd}', DvdController::class);
 
+    $app->get('/dvds', DvdController::class);
 };

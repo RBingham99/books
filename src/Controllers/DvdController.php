@@ -20,7 +20,7 @@ class DvdController
 
     function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $data = $this->dvdsModel->getDvd($args['dvd']);
-        return $this->renderer->render($response, 'dvddetail.php', ['dvd' => $data]);
+        $data = $this->dvdsModel->getDvds();
+        return $this->renderer->render($response, 'dvds.php', ['dvds' => $data]);
     }
 }
