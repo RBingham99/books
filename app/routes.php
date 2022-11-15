@@ -1,10 +1,11 @@
 <?php
 declare(strict_types=1);
 
+use App\Controllers\BooksController;
 use App\Controllers\CoursesAPIController;
+use App\Controllers\DvdController;
 use Slim\App;
 use Slim\Views\PhpRenderer;
-use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -17,5 +18,15 @@ return function (App $app) {
     });
 
     $app->get('/courses', CoursesAPIController::class);
+
+//    $app->get('/books', function (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+//    {
+//        $response->getBody()->write('Hello from an <strong>anonymous function</strong>');
+//        return $response;
+//    });
+
+    $app->get('/books', BooksController::class);
+
+    $app->get('/dvds/{dvd}', DvdController::class);
 
 };
